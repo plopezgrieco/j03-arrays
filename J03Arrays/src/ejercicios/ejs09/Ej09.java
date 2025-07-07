@@ -11,14 +11,18 @@ import java.util.Random;
 public class Ej09 {
 
 	
+	public static void main(String[] args) {
+		util.ArraysUtil.muestra(generaTabla(4, 6));
+	}
+	
 	public static int[][] generaTabla(int f, int c){
 		int[][] t = new int[f+1][c+1];
-		int sumF, sumC;
 		for (int i = 0; i < f; i++) {
-			sumF = 0;
 			for (int j = 0; j < c; j++) {
 				t[i][j] = random();
-				sumF = 0;
+				t[i][c] += t[i][j];
+				t[f][j] += t[i][j];
+				t[f][c] += t[i][j];
 			}
 		}
 		return t;
